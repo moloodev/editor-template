@@ -1,0 +1,37 @@
+{
+  "name": "@moloodev/example-editor",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./manifest": "./src/manifest.ts",
+    "./view": "./src/view.tsx"
+  },
+  "scripts": {
+    "dev": "moloo editor dev",
+    "build": "moloo editor build",
+    "publish:editor": "moloo editor publish",
+    "status": "moloo editor status",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test 'src/**/*.test.ts'"
+  },
+  "dependencies": {
+    "@moloodev/editor-sdk": "^0.5.0",
+    "@moloodev/ui": "^0.5.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@moloodev/cli": "^0.5.0",
+    "@moloodev/typescript-config": "^0.5.0",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "tsx": "4.23.13",
+    "typescript": "7.0.2"
+  },
+  "packageManager": "pnpm@10.32.1",
+  "engines": {
+    "node": ">=24"
+  }
+}

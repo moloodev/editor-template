@@ -1,0 +1,4 @@
+{
+  "extends": "@moloodev/typescript-config/react.json",
+  "include": ["src"]
+}
