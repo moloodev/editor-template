@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@moloodev/editor-sdk':
-        specifier: ^0.5.0
-        version: 0.5.0(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)
       '@moloodev/ui':
-        specifier: ^0.5.0
-        version: 0.5.0(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)
       react:
         specifier: ^19.2.8
         version: 19.3.1
@@ -22,11 +22,11 @@ importers:
         version: 19.3.1(react@19.3.1)
     devDependencies:
       '@moloodev/cli':
-        specifier: ^0.5.0
-        version: 0.5.0(@date-fns/tz@1.5.0)(@types/node@24.19.2)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(jiti@2.7.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)
+        specifier: ^0.9.1
+        version: 0.9.1(@date-fns/tz@1.5.0)(@types/node@24.19.2)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(jiti@2.7.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)
       '@moloodev/typescript-config':
-        specifier: ^0.5.0
-        version: 0.5.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@types/node':
         specifier: ^24.13.3
         version: 24.19.2
@@ -411,6 +411,10 @@ packages:
   '@floating-ui/utils@0.2.12':
     resolution: {integrity: sha512-HpCo8tmWzLVad5s2d19EhAz5zqrrQ6s69qd6moPMQvkOuSwDT1YgRfWSVuc4ennqrgv3OHppiOGMQ7oC13yIww==}
 
+  '@isaacs/fs-minipass@4.0.1':
+    resolution: {integrity: sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w==}
+    engines: {node: '>=18.0.0'}
+
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
 
@@ -445,28 +449,28 @@ packages:
     resolution: {integrity: sha512-rgR9yxSaAJ+bcsi/XroT/S2AfPiIWloXAnrdfYSCms9ivVju0ishu/wW0J21Ho6+ZOR1r7RyeRbjiRuF87ix5Q==}
     engines: {node: '>=20'}
 
-  '@moloodev/cli@0.5.0':
-    resolution: {integrity: sha512-EqPamE3dWefVRX12c/ugtGudFdMlS4s/cYhqiWctsCnFKNQcAHwg/LI2Ss30CDh49HdjceAXZXRzizb/9K3ikA==}
+  '@moloodev/cli@0.9.1':
+    resolution: {integrity: sha512-CgeLwkYNjsAr02V2OhAFK3bxp3SAqAD5TAQGEFJA47Zb2S4fD2vZJRe8Mr31mGE70pgFKVFRqBWgO9jnnFJD+w==}
     engines: {node: '>=24'}
     hasBin: true
 
-  '@moloodev/editor-sdk@0.5.0':
-    resolution: {integrity: sha512-+TkAwL/ifBHLKpliwgd4TR/Y1ZNSfZd+DkRb0HP0G5Ctm19AuJuIYM0fInLrypQvV+K6uiBzW3MJviFaTUBRPQ==}
+  '@moloodev/editor-sdk@0.9.1':
+    resolution: {integrity: sha512-KqNhIMnAPwJJ7mbKmmkfRjNGri8vcZ64dAKjXJfRs3vIZM7OiyXjWNgZLNiVFa2j9+9Eh2I8XGXYWNWGIHbWrQ==}
     peerDependencies:
       react: ^19.0.0
       react-dom: ^19.0.0
 
-  '@moloodev/editor-store@0.5.0':
-    resolution: {integrity: sha512-Asqd3QJYWPeMiRN5tm1QIhfxrrZmI9UXnoPcetOfRXi+KdIIihId8dSMC2AnuaAuibH2BZt1dQgr6cD6/JnfQg==}
+  '@moloodev/editor-store@0.9.1':
+    resolution: {integrity: sha512-06ebzG++1zVz/BgQVeaS34Z4cD6QnLNvHK4RJrafHvgdm7gdWFD/iW8M1xPtwkLqrTHH5lZjTgNWdO1JpaoKsA==}
 
-  '@moloodev/platform@0.5.0':
-    resolution: {integrity: sha512-pp1wTj+/TXlobmH065BxY9aACSKJlhK8T0NmlRloCqujBhKpx5neuhXKKb9z1i4bT7L/Pd4HLNgzXiUGEIaGHg==}
+  '@moloodev/platform@0.9.1':
+    resolution: {integrity: sha512-0cHKC1hx8/JJThM0OT+sKsJKvTrJ5mdHomk9XjYxyqeAjIM/k0cOL5eIR1LzPUf3k5+MOwj1XJ9czxJbr+Zrbw==}
 
-  '@moloodev/typescript-config@0.5.0':
-    resolution: {integrity: sha512-QJEUMsiNcBZ9I/lHr8AA92wO9SVzvueWpMbOhBgrkkIbPOAD0JMq0opCWqOZ1gURdbW56zKh9GwtsdZfzqYnJw==}
+  '@moloodev/typescript-config@0.9.1':
+    resolution: {integrity: sha512-VAHQSWb88j32BFTrWWpw4/mvcdxqcNkAs4gbGQSOYNNxDSVbvKe3FyQZx9X1JXtuPA4nQSBNpxUnw8qKOUYgAQ==}
 
-  '@moloodev/ui@0.5.0':
-    resolution: {integrity: sha512-/BcI2yL1XjGZePZiLpRO0OJvi58WE71Cf9oLZMhlvD1KKCQsfOvVvhTNiDY/EOf4Tu4y5gBgtSch42y3zkJl8Q==}
+  '@moloodev/ui@0.9.1':
+    resolution: {integrity: sha512-og9WUr21ignVx0MEh1iqzf29eny7Ek7knzj16hvZPR/q5KmWW760I/zplpLStmSmQ+wYU9FaPfPiJ9q8rewlIA==}
     peerDependencies:
       react: ^19.0.0
       react-dom: ^19.0.0
@@ -1255,6 +1259,10 @@ packages:
     resolution: {integrity: sha512-7NzBL0rN6fMUW+f7A6Io4h40qQlG+xGmtMxfbnH/K7TAtt8JQWVQK+6g0UXKMeVJoyV5EkkNsErQ8pVD3bLHbA==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
 
+  chownr@3.0.0:
+    resolution: {integrity: sha512-+IxzY9BZOQd/XuYPRmrvEVjF/nqj5kgT4kEq7VofrDoM1MxoRjEWkrCC3EtLi59TVawxTAn+orJwFQcrqEN1+g==}
+    engines: {node: '>=18'}
+
   class-variance-authority@0.7.1:
     resolution: {integrity: sha512-Ka+9Trutv7G8M6WT6SeiRWz792K5qEqIGEGzXKhAE6xOWAY6pPH8U+9IY3oCMv6kqTmLsv7Xh/2w2RigkePMsg==}
 
@@ -1915,6 +1923,14 @@ packages:
   minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
 
+  minipass@7.1.3:
+    resolution: {integrity: sha512-tEBHqDnIoM/1rXME1zgka9g6Q2lcoCkxHLuc7ODJ5BxbP5d4c2Z5cGgtXAku59200Cx7diuHTOYfSBD8n6mm8A==}
+    engines: {node: '>=16 || 14 >=14.17'}
+
+  minizlib@3.1.0:
+    resolution: {integrity: sha512-KZxYo1BUkWD2TVFLr0MQoM8vUUigWD3LlD83a/75BqC+4qE0Hb1Vo5v1FgcfaNXvfXzr+5EhQ6ing/CaBijTlw==}
+    engines: {node: '>= 18'}
+
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
@@ -2268,6 +2284,10 @@ packages:
     resolution: {integrity: sha512-uxc/zpqFg6x7C8vOE7lh6Lbda8eEL9zmVm/PLeTPBRhh1xCgdWaQ+J1CUieGpIfm2HdtsUpRv+HshiasBMcc6A==}
     engines: {node: '>=6'}
 
+  tar@7.5.22:
+    resolution: {integrity: sha512-MFO/QzvtAOmJbkhOaCTvbGcFN9L9b+JunIsDwaKljSOdcLMea3NJ1k9Usz/rjdfSXTq4dfzfeS7W4p4YOAAHeA==}
+    engines: {node: '>=18'}
+
   throttleit@2.1.0:
     resolution: {integrity: sha512-nt6AMGKW1p/70DF/hGBdJB57B8Tspmbp5gfJ8ilhLnt7kkr2ye7hzD6NVG8GGErk2HWF34igrL2CXmNIkzKqKw==}
     engines: {node: '>=18'}
@@ -2450,6 +2470,10 @@ packages:
   yallist@3.1.1:
     resolution: {integrity: sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==}
 
+  yallist@5.0.0:
+    resolution: {integrity: sha512-YgvUTfwqyc7UXVMrB+SImsVYSmTS8X/tSrtdNZMImM+n7+QTriRXyXim0mBrTXNeqzVF0KWGgHPeiyViFFrNDw==}
+    engines: {node: '>=18'}
+
   yjs@13.6.33:
     resolution: {integrity: sha512-q/UYvr1gOk4XII+Cu1CW2dINjYqJJFifTzogEaIARznrvX7uOlHsdTEXcnOBMuIsrCGEEKdNxi74kyMLZlKVfw==}
     engines: {node: '>=16.0.0', npm: '>=8.0.0'}
@@ -2485,7 +2509,7 @@ snapshots:
       '@babel/helper-compilation-targets': 7.29.7
       '@babel/helper-module-transforms': 7.29.7(@babel/core@7.29.7)
       '@babel/helpers': 7.29.10
-      '@babel/parser': 7.29.8
+      '@babel/parser': 7.29.12
       '@babel/template': 7.29.7
       '@babel/traverse': 7.29.12
       '@babel/types': 7.29.11
@@ -2642,7 +2666,7 @@ snapshots:
   '@babel/template@7.29.7':
     dependencies:
       '@babel/code-frame': 7.29.7
-      '@babel/parser': 7.29.8
+      '@babel/parser': 7.29.12
       '@babel/types': 7.29.11
 
   '@babel/traverse@7.29.12':
@@ -2844,6 +2868,10 @@ snapshots:
 
   '@floating-ui/utils@0.2.12': {}
 
+  '@isaacs/fs-minipass@4.0.1':
+    dependencies:
+      minipass: 7.1.3
+
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
       '@jridgewell/sourcemap-codec': 1.6.0
@@ -2883,22 +2911,24 @@ snapshots:
       '@modelcontextprotocol/core': 2.4.0
       zod: 4.6.7
 
-  '@moloodev/cli@0.5.0(@date-fns/tz@1.5.0)(@types/node@24.19.2)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(jiti@2.7.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)':
+  '@moloodev/cli@0.9.1(@date-fns/tz@1.5.0)(@types/node@24.19.2)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(jiti@2.7.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)':
     dependencies:
       '@babel/parser': 7.29.8
-      '@moloodev/editor-sdk': 0.5.0(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)
-      '@moloodev/editor-store': 0.5.0
-      '@moloodev/platform': 0.5.0
-      '@moloodev/ui': 0.5.0(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)
+      '@moloodev/editor-sdk': 0.9.1(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)
+      '@moloodev/editor-store': 0.9.1
+      '@moloodev/platform': 0.9.1
+      '@moloodev/ui': 0.9.1(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)
       '@napi-rs/keyring': 2.1.2
       '@tailwindcss/vite': 4.3.3(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13))
       esbuild: 0.28.2
       open: 11.0.2
       shadcn: 4.23.0
       tailwindcss: 4.3.3
+      tar: 7.5.22
       tsx: 4.23.13
       tw-animate-css: 1.4.0
       vite: 8.3.5(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.13)
+      zod: 4.6.7
     transitivePeerDependencies:
       - '@date-fns/tz'
       - '@types/node'
@@ -2920,13 +2950,13 @@ snapshots:
       - terser
       - yaml
 
-  '@moloodev/editor-sdk@0.5.0(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)':
+  '@moloodev/editor-sdk@0.9.1(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)':
     dependencies:
       '@dnd-kit/react': 0.5.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@json-render/core': 0.20.0(zod@4.6.7)
       '@json-render/react': 0.20.0(react@19.3.1)(zod@4.6.7)
-      '@moloodev/platform': 0.5.0
-      '@moloodev/ui': 0.5.0(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)
+      '@moloodev/platform': 0.9.1
+      '@moloodev/ui': 0.9.1(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)
       '@tabler/icons-react': 3.50.0(react@19.3.1)
       '@tanstack/react-hotkeys': 0.10.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       lib0: 0.2.119
@@ -2943,25 +2973,26 @@ snapshots:
       - react-is
       - redux
 
-  '@moloodev/editor-store@0.5.0':
+  '@moloodev/editor-store@0.9.1':
     dependencies:
-      '@moloodev/platform': 0.5.0
+      '@moloodev/platform': 0.9.1
       '@vercel/blob': 2.8.2
       zod: 4.6.7
 
-  '@moloodev/platform@0.5.0':
+  '@moloodev/platform@0.9.1':
     dependencies:
       nanoid: 6.0.2
       zod: 4.6.7
 
-  '@moloodev/typescript-config@0.5.0': {}
+  '@moloodev/typescript-config@0.9.1': {}
 
-  '@moloodev/ui@0.5.0(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)':
+  '@moloodev/ui@0.9.1(@date-fns/tz@1.5.0)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react-is@19.3.1)(react@19.3.1)(redux@5.0.1)':
     dependencies:
       '@base-ui/react': 1.9.0(@date-fns/tz@1.5.0)(@types/react@19.3.0)(date-fns@4.4.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@shadcn/react': 0.2.1(@types/react@19.3.0)(react@19.3.1)
       '@tabler/icons-react': 3.50.0(react@19.3.1)
       '@tanstack/react-table': 9.3.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+      '@tanstack/table-core': 9.3.1
       class-variance-authority: 0.7.1
       clsx: 2.1.1
       cmdk: 1.1.1(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -3193,7 +3224,7 @@ snapshots:
       immer: 11.2.9
       redux: 5.0.1
       redux-thunk: 3.1.0(redux@5.0.1)
-      reselect: 5.1.1
+      reselect: 5.3.0
     optionalDependencies:
       react: 19.3.1
       react-redux: 9.3.1(@types/react@19.3.0)(react@19.3.1)(redux@5.0.1)
@@ -3255,7 +3286,7 @@ snapshots:
   '@shadcn/registry@0.2.1':
     dependencies:
       '@babel/core': 7.29.7
-      '@babel/parser': 7.29.8
+      '@babel/parser': 7.29.12
       '@babel/plugin-transform-typescript': 7.29.9(@babel/core@7.29.7)
       '@babel/preset-typescript': 7.29.7(@babel/core@7.29.7)
       '@dotenvx/dotenvx': 1.75.1
@@ -3581,6 +3612,8 @@ snapshots:
   caniuse-lite@1.0.30001820: {}
 
   chalk@5.6.2: {}
+
+  chownr@3.0.0: {}
 
   class-variance-authority@0.7.1:
     dependencies:
@@ -4110,6 +4143,12 @@ snapshots:
 
   minimist@1.2.8: {}
 
+  minipass@7.1.3: {}
+
+  minizlib@3.1.0:
+    dependencies:
+      minipass: 7.1.3
+
   ms@2.1.3: {}
 
   nanoid@3.3.20: {}
@@ -4374,7 +4413,7 @@ snapshots:
   shadcn@4.23.0:
     dependencies:
       '@babel/core': 7.29.7
-      '@babel/parser': 7.29.8
+      '@babel/parser': 7.29.12
       '@babel/plugin-transform-typescript': 7.29.9(@babel/core@7.29.7)
       '@babel/preset-typescript': 7.29.7(@babel/core@7.29.7)
       '@dotenvx/dotenvx': 1.75.1
@@ -4467,6 +4506,14 @@ snapshots:
   tailwindcss@4.3.3: {}
 
   tapable@2.3.3: {}
+
+  tar@7.5.22:
+    dependencies:
+      '@isaacs/fs-minipass': 4.0.1
+      chownr: 3.0.0
+      minipass: 7.1.3
+      minizlib: 3.1.0
+      yallist: 5.0.0
 
   throttleit@2.1.0: {}
 
@@ -4630,6 +4677,8 @@ snapshots:
       yjs: 13.6.33
 
   yallist@3.1.1: {}
+
+  yallist@5.0.0: {}
 
   yjs@13.6.33:
     dependencies:
