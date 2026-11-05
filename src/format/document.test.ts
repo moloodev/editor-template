@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { test } from "node:test";
+import { test } from "vitest";
 import { createDoc, createUndo, rootMap, writeJson } from "@moloodev/editor-sdk/crdt";
 import manifest from "../manifest";
 import { readMessage, writeMessage } from "./document";
