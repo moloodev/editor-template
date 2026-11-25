@@ -8,6 +8,7 @@ description: Build or update a moloo editor from this template using the npm edi
 Work in the generated editor package. Read [README.md](../../../README.md) for
 requirements, scaffolding, installation, login, development, and publication
 commands. Keep that setup guidance there rather than duplicating it.
+This guide targets the npm `@moloodev/*` 0.12.0 CLI and SDK.
 
 ## Development and publication
 
@@ -20,11 +21,21 @@ Select the workspace after login with `pnpm exec moloo workspace use <slug>`;
 an explicit `--workspace <slug>` selects it for dev or publish instead.
 
 Inspect `package.json`, the lockfile, and the installed packages' `exports` and
-source before choosing an API. The template currently locks `@moloodev/*` to
-0.5.0; that CLI has dev/build/publish, but lacks create/status, and that SDK
-does not type the manifest's `skills` field. Scaffolding uses a CLI with create
-support, as in the README. Check the installed version before using newer
-commands or fields; do not bypass types or change dependencies outside the task.
+source before choosing an API. Confirm the CLI with `pnpm exec moloo --version`,
+`pnpm exec moloo --help`, and `pnpm exec moloo editor --help`. In 0.12.0,
+`editor` supports `create`, `dev`, `build`, `test`, `publish`, `promote`, and
+`status`; the root CLI also supports `upgrade [--major]` for project dependencies
+and `update` for the global CLI. These commands can change installed versions;
+use them only within the requested scope. Do not bypass types or change
+dependencies outside the task.
+
+The package's `pnpm test` runs the document unit test with `tsx`; it does not run
+the CLI contract suite. For that additional check, use
+`pnpm exec moloo editor test [--dir <path>] [--out-dir <path>]`. It builds the
+view and checks the manifest, bundle, handshake, chrome submission, and mounted
+view in headless Chromium, which must be installed for Playwright. Its default
+output directory is temporary; an explicit `--out-dir` is retained and resolved
+relative to the editor package.
 
 Develop inside the production host at `https://app.moloo.dev`; the CLI opens the
 selected workspace's dev editor. Local connection, browser permissions, port
@@ -34,8 +45,11 @@ app host to start in this package.
 Before publishing, run `pnpm typecheck`, `pnpm test`, and `pnpm build`, and verify
 the requested interaction in the host iframe. Publish only when the user has
 authorized publication, using a workspace that manages the publisher handle.
-Use `moloo editor status` with a supporting CLI to inspect submitted revisions
-and review findings. A successful submission may still require platform review.
+Use `pnpm status --workspace <slug>` to inspect submitted revisions and review
+findings. `pnpm publish:editor --workspace <slug>` targets `stable` by default;
+`--track beta` selects beta. `pnpm exec moloo editor promote beta stable
+--workspace <slug>` submits the current beta revision for stable. Publish and
+promote only with user authorization; submission may require platform review.
 
 ## Source and manifest
 
@@ -99,6 +113,11 @@ panel contents and frame layout. For host operations use typed `view.call`
 methods such as `"host.pick"`, `"host.render"`, `"host.download"`, and
 `"asset.read"`; handle unsuccessful responses. React bindings such as
 `useOpenSession` and `useEditorHost` come from `@moloodev/editor-sdk/view`.
+An exported hook is not necessarily implemented by `PortEditorView`: in 0.12.0,
+`useList`, `useKinds`, `useComposition`, `usePublication`, `useAssetClient`, and
+`useEditorDocProjection` throw in iframe views. Check `src/view/port-binding.ts`
+in the installed SDK before choosing a binding; use session documents and typed
+protocol calls for this template.
 
 ## Documents, commands, and layout
 
@@ -137,25 +156,35 @@ Keep panel state out of the URL and document payload.
 
 ## Skills this editor provides to bots
 
-Authoring instructions belong in `.agents/skills/`. Bot-facing skills belong in
-root `skills/<id>/SKILL.md` and describe how to work with this editor's documents,
-not how to develop the editor. Never point the manifest at `.agents/skills/`.
+Authoring instructions belong in `.agents/skills/`. Use root
+`skills/<id>/SKILL.md` as the convention for bot-facing documentation about this
+editor's documents. Never point the manifest at `.agents/skills/`.
 
-For an editor that provides skills:
+The 0.12.0 SDK types the optional top-level `skills` field. Its
+`src/commands/manifest/editor-document.ts` exports `editorSkillsPathSchema` and
+`parseEditorSkillsPath`, used by `validateEditorManifest` and the static reader
+in `testing/read-editor-manifest.ts`. Their actual path rules are:
 
-- Set the manifest's top-level `skills: "./skills"`. It is a package-relative
-  folder beginning with `./`, with no backslashes, empty segments, `.` or `..`.
-- Use IDs matching `^[a-z0-9]+(?:-[a-z0-9]+)*$`, at most 64 characters. Each
-  directory needs `SKILL.md` with non-empty frontmatter `name` and `description`.
-- Include only UTF-8 `.md`, `.txt`, or `.json` files. Helpers may sit beside
-  `SKILL.md` or in one subdirectory, such as `skills/<id>/examples/sample.json`.
-  Do not include executables, shebangs, symlinks, or paths escaping the folder.
-- The skills publishing flow validates and uploads the declared folder and
-  generates the revision's `index.json`; do not hand-maintain that index.
-  Manifest field support alone is insufficient: confirm that the installed CLI
-  also uploads skill files before publishing them. The locked 0.5.0
-  packages do not support this flow. Keep dependency upgrades in the scope of
-  the user's request rather than hiding incompatibility with a type assertion.
+- Use a package-relative string starting with `./`, such as `skills: "./skills"`
+  or `skills: "./docs/skills"`.
+- After `./`, require a non-empty folder name. Reject backslashes and empty,
+  `.` or `..` segments. One trailing slash is allowed, so `"./skills/"` is valid;
+  `"./"`, `"./skills//"`, `"./skills/../other"`, and absolute paths are invalid.
+- Omission means no skills declaration. The parser also treats `null` as absent,
+  but the TypeScript field is `skills?: string`; omit it in authored manifests.
+
+This validation checks the path string, not the filesystem. It does not check
+skill IDs, frontmatter, file extensions, directory depth, symlinks, or file
+contents. Do not describe such constraints as 0.12.0 SDK validation rules.
+
+The 0.12.0 CLI does not yet deliver these files: `src/editor-views.ts` builds
+`editor.js`, `manifest.json`, and `meta.json`; `src/publish.ts` uploads the script
+and submits its manifest and hash. Neither flow collects the declared skills
+folder, validates its files, uploads skills, or generates a skills `index.json`.
+Accepting `skills: "./skills"` therefore does not make local files available to
+bots through publication. Confirm a file publishing implementation in the CLI
+before promising delivery; no skill-file publishing contract is established by
+these packages.
 
 Do not add a manifest `skills` entry merely to distribute this authoring skill.
 It ships with the scaffold through the template's `.agents/skills/` directory.
