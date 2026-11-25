@@ -16,14 +16,14 @@
     "test": "tsx --test 'src/**/*.test.ts'"
   },
   "dependencies": {
-    "@moloodev/editor-sdk": "^0.9.1",
-    "@moloodev/ui": "^0.9.1",
+    "@moloodev/editor-sdk": "^0.12.0",
+    "@moloodev/ui": "^0.12.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
   "devDependencies": {
-    "@moloodev/cli": "^0.9.1",
-    "@moloodev/typescript-config": "^0.9.1",
+    "@moloodev/cli": "^0.12.0",
+    "@moloodev/typescript-config": "^0.12.0",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
