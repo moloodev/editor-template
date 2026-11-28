@@ -8,7 +8,7 @@ description: Build or update a moloo editor from this template using the npm edi
 Work in the generated editor package. Read [README.md](../../../README.md) for
 requirements, scaffolding, installation, login, development, and publication
 commands. Keep that setup guidance there rather than duplicating it.
-This guide targets the npm `@moloodev/*` 0.12.0 CLI and SDK.
+This guide targets the npm `@moloodev/*` 0.13.0 CLI and SDK.
 
 ## Development and publication
 
@@ -22,7 +22,7 @@ an explicit `--workspace <slug>` selects it for dev or publish instead.
 
 Inspect `package.json`, the lockfile, and the installed packages' `exports` and
 source before choosing an API. Confirm the CLI with `pnpm exec moloo --version`,
-`pnpm exec moloo --help`, and `pnpm exec moloo editor --help`. In 0.12.0,
+`pnpm exec moloo --help`, and `pnpm exec moloo editor --help`. In 0.13.0,
 `editor` supports `create`, `dev`, `build`, `test`, `publish`, `promote`, and
 `status`; the root CLI also supports `upgrade [--major]` for project dependencies
 and `update` for the global CLI. These commands can change installed versions;
@@ -62,7 +62,7 @@ Start from the existing files rather than adding a parallel editor framework:
 - [src/format/document.ts](../../../src/format/document.ts): document validation
   and CRDT mutations; its adjacent test covers preservation of fields and undo.
 - [src/session/use-document.ts](../../../src/session/use-document.ts): session
-  readiness, accepted asset type, projection, subscription, and edit guards.
+  readiness, projection, subscription, and edit guards.
 - [src/features/editing/editing-panel.tsx](../../../src/features/editing/editing-panel.tsx):
   panel UI and content-error/empty/read-only behavior.
 
@@ -113,7 +113,15 @@ panel contents and frame layout. For host operations use typed `view.call`
 methods such as `"host.pick"`, `"host.render"`, `"host.download"`, and
 `"asset.read"`; handle unsuccessful responses. React bindings such as
 `useOpenSession` and `useEditorHost` come from `@moloodev/editor-sdk/view`.
-An exported hook is not necessarily implemented by `PortEditorView`: in 0.12.0,
+Editor assets have `id`, `path`, and optional `storageMode`, `contentType`, and
+`schema`; they have no `type` or `name`. Use the path's basename for display names.
+`host.pick` takes `match` and `exclude` arrays of `FileMatcher` from
+`@moloodev/platform`, plus optional `excludeIds`. `asset.list` takes
+`{ match?, pathPrefix? }`, and `host.openAsset` takes `{ id }`.
+Use `matchesFile` from `@moloodev/platform` for local file matching.
+The manifest's `acceptedTypes` remains metadata; do not pass it to `PortEditorView`.
+
+An exported hook is not necessarily implemented by `PortEditorView`: in 0.13.0,
 `useList`, `useKinds`, `useComposition`, `usePublication`, `useAssetClient`, and
 `useEditorDocProjection` throw in iframe views. Check `src/view/port-binding.ts`
 in the installed SDK before choosing a binding; use session documents and typed
@@ -122,11 +130,11 @@ protocol calls for this template.
 ## Documents, commands, and layout
 
 Treat the document returned by `useOpenSession()` as authoritative. Follow
-`useDocument`: gate on `isEditorContentReady(mode, doc !== null)` and the
-manifest's accepted asset types before subscribing or projecting; mutate only
-in edit mode. Validate the format, show `ContentErrorNotice` for unreadable
+`useDocument`: gate on `isEditorContentReady(mode, doc !== null)` before
+subscribing or projecting; mutate only in edit mode. Validate the format,
+show `ContentErrorNotice` for unreadable
 content, and keep empty/loading/read-only states usable. Never initialize over
-an unreadable document or project an unrelated asset type.
+an unreadable document.
 
 Implement edits in `src/format/` with public `@moloodev/editor-sdk/crdt` APIs,
 as `writeMessage` uses `transact` and `rootMap`. Preserve unrelated fields and
@@ -160,7 +168,7 @@ Authoring instructions belong in `.agents/skills/`. Use root
 `skills/<id>/SKILL.md` as the convention for bot-facing documentation about this
 editor's documents. Never point the manifest at `.agents/skills/`.
 
-The 0.12.0 SDK types the optional top-level `skills` field. Its
+The 0.13.0 SDK types the optional top-level `skills` field. Its
 `src/commands/manifest/editor-document.ts` exports `editorSkillsPathSchema` and
 `parseEditorSkillsPath`, used by `validateEditorManifest` and the static reader
 in `testing/read-editor-manifest.ts`. Their actual path rules are:
@@ -173,18 +181,14 @@ in `testing/read-editor-manifest.ts`. Their actual path rules are:
 - Omission means no skills declaration. The parser also treats `null` as absent,
   but the TypeScript field is `skills?: string`; omit it in authored manifests.
 
-This validation checks the path string, not the filesystem. It does not check
-skill IDs, frontmatter, file extensions, directory depth, symlinks, or file
-contents. Do not describe such constraints as 0.12.0 SDK validation rules.
+This manifest validation checks the path string, not the filesystem. It does not
+check skill IDs, frontmatter, file extensions, directory depth, symlinks, or file
+contents. Do not describe such constraints as SDK manifest validation rules.
 
-The 0.12.0 CLI does not yet deliver these files: `src/editor-views.ts` builds
-`editor.js`, `manifest.json`, and `meta.json`; `src/publish.ts` uploads the script
-and submits its manifest and hash. Neither flow collects the declared skills
-folder, validates its files, uploads skills, or generates a skills `index.json`.
-Accepting `skills: "./skills"` therefore does not make local files available to
-bots through publication. Confirm a file publishing implementation in the CLI
-before promising delivery; no skill-file publishing contract is established by
-these packages.
+The 0.13.0 CLI reads and validates the declared skills folder during publication
+through `src/editor-skills.ts`. `src/publish.ts` uploads the skill files and
+submits their paths and hashes with the editor. Check the installed CLI's
+file validation rules before adding bot-facing skills.
 
 Do not add a manifest `skills` entry merely to distribute this authoring skill.
 It ships with the scaffold through the template's `.agents/skills/` directory.
