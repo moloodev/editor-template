@@ -56,7 +56,7 @@ function Content({ view }: { view: EditorView }) {
 }
 
 function Root({ view }: { view: EditorView }) {
-  return <PortEditorView view={view} acceptedTypes={manifest.acceptedTypes}>
+  return <PortEditorView view={view}>
     <PortCommandsProvider view={view} manifests={manifests}>
       <ScopeProvider manifest={contribution}><Content view={view} /></ScopeProvider>
     </PortCommandsProvider>

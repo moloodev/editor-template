@@ -26,7 +26,13 @@ test("opens JSON template documents by shape and rejects invalid content", () =>
     assert.ok(payload);
     writeJson(doc, payload);
     const session: ReturnType<EditorViewBinding["useOpenSession"]> = {
-      asset: { id: "template", name: "untitled.example.json", type: "application/json" },
+      asset: {
+        id: "template",
+        path: "untitled.example.json",
+        storageMode: "json",
+        contentType: "application/json",
+        schema: "https://example.com/schemas/example/v1.json",
+      },
       doc,
       mode: "edit",
       data: null,
